@@ -3,7 +3,7 @@ import { DecksActions } from 'features/decks/types/DecksActionProps.ts'
 import { DeckStateProps } from 'features/decks/types/DeckStateProps.ts'
 
 const initialState: DeckStateProps = {
-  decks: [] as DeckProps[], // todo: add type
+  decks: [] as DeckProps[],
   searchParams: {
     name: '',
   },
