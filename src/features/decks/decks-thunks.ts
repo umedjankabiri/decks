@@ -2,7 +2,7 @@ import { AppDispatch } from 'app/store.ts'
 import { decksApi } from 'features/decks/decksApi.ts'
 import { addDecksAC, setDecksAC } from 'features/decks/reducers/decksReducer.ts'
 import { AddDeckParamsProps } from 'common/types/DeckResponseProps.ts'
-import { setErrorAC, setStatusAC } from 'features/decks/reducers/appReducer.ts'
+import { setErrorAC, setStatusAC } from 'features/decks/reducers/statusReducer.ts'
 
 export const getDecksTC = () =>
   async (dispatch: AppDispatch) => {
