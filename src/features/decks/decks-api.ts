@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { DeckResponseProps } from 'features/decks/types/DeckResponseProps.ts'
+import { AddDeckParamsProps, DeckProps, DeckResponseProps } from 'common/types/DeckResponseProps.ts'
 
 export const instance = axios.create({
   baseURL: 'https://api.flashcards.andrii.es',
@@ -11,5 +11,8 @@ export const instance = axios.create({
 export const decksApi = {
   getDecks (){
     return instance.get<DeckResponseProps>('/v2/decks')
+  },
+  addDeck (params: AddDeckParamsProps) {
+    return instance.post<DeckProps>('/v1/decks', params)
   }
 }
