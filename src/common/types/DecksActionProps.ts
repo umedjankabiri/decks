@@ -1,4 +1,4 @@
-import { addDecksAC, setDecksAC } from 'features/decks/reducers/decks-reducer.ts'
+import { addDecksAC, setDecksAC } from 'features/decks/reducers/decksReducer.ts'
 
 type SetDecksACProps = ReturnType<typeof setDecksAC>
 type AddDecksACProps = ReturnType<typeof addDecksAC>
