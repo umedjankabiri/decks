@@ -1,17 +1,18 @@
-import { combineReducers, legacy_createStore, applyMiddleware, AnyAction } from 'redux'
-import thunkMiddleware, { ThunkDispatch } from 'redux-thunk'
+import { applyMiddleware, combineReducers, legacy_createStore } from 'redux'
+import { thunk, ThunkDispatch } from 'redux-thunk'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 import { decksReducer } from '../features/decks/decks-reducer.ts'
+import { DecksActions } from 'features/decks/types/DecksActionProps.ts'
 
 const rootReducer = combineReducers({
   decksReducer,
 })
 
-export const store = legacy_createStore(rootReducer, applyMiddleware(thunkMiddleware))
+export const store = legacy_createStore(rootReducer)
 
 export type AppRootState = ReturnType<typeof rootReducer>
-
-export type AppDispatch = ThunkDispatch<AppRootState, unknown, AnyAction>
+export type AppDispatch = ThunkDispatch<AppRootState, unknown, AppActions>
+export type AppActions = DecksActions
 
 export const useAppDispatch = () => useDispatch<AppDispatch>()
-export const useAppSelector: TypedUseSelectorHook<AppRootState> = useSelector
+export const useAppSelector: TypedUseSelectorHook<AppRootState> = useSelector.withTypes<AppRootState>()
