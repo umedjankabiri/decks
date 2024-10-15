@@ -28,3 +28,7 @@ export type DeckProps = {
 export type AddDeckParamsProps = {
   name: string
 }
+export type UpdateDeckParamsProps = {
+  id: string;
+  name: string;
+}
