@@ -6,7 +6,7 @@ const initialState: StatusStateProps = {
   error: null
 }
 
-export const appReducer = (state: StatusStateProps = initialState, action: StatusActions): StatusStateProps => {
+export const statusReducer = (state: StatusStateProps = initialState, action: StatusActions): StatusStateProps => {
   switch (action.type) {
     case 'SET_STATUS':
       return {
