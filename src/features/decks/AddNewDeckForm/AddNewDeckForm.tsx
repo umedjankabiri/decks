@@ -1,7 +1,6 @@
 import s from './AddNewPostForm.module.css'
 import { useForm } from 'react-hook-form'
 import { useAppDispatch } from 'app/store.ts'
-import { useEffect } from 'react'
 import { AddDeckTC } from 'features/decks/decks-thunks.ts'
 
 type FormValues = {
@@ -9,7 +8,12 @@ type FormValues = {
 }
 
 export const AddNewDeckForm = () => {
-  const { register, handleSubmit, reset, formState: { errors }, } = useForm<FormValues>({
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormValues>({
     defaultValues: {
       name: '',
     },
