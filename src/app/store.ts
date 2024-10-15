@@ -3,12 +3,12 @@ import { thunk, ThunkDispatch } from 'redux-thunk'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 import { decksReducer } from 'features/decks/reducers/decksReducer.ts'
 import { DecksActions } from 'common/types/DecksActionProps.ts'
-import { appReducer } from 'features/decks/reducers/appReducer.ts'
+import { statusReducer } from 'features/decks/reducers/statusReducer.ts'
 import { StatusActions } from 'common/types/StatusActionProps.ts'
 
 const rootReducer = combineReducers({
   decksReducer,
-  appReducer
+  statusReducer
 })
 
 // @ts-ignore
