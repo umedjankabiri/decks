@@ -6,13 +6,11 @@ import { setErrorAC, setStatusAC } from 'features/decks/reducers/statusReducer.t
 
 export const getDecksTC = () =>
   async (dispatch: AppDispatch) => {
-  try {
+    dispatch(setStatusAC("loading"))
+    try {
     const response = await decksApi.getDecks()
-    if (response.data.items.length) {
-      dispatch(setStatusAC("loading"))
       dispatch(setDecksAC(response.data.items))
       dispatch(setStatusAC("succeeded"))
-    }
   } catch (error) {
     dispatch(setStatusAC("failed"))
     dispatch(setErrorAC("some error occurred"))
@@ -20,13 +18,11 @@ export const getDecksTC = () =>
 }
 export const AddDeckTC = (params: AddDeckParamsProps) =>
   async (dispatch: AppDispatch) => {
-  try {
+    dispatch(setStatusAC("loading"))
+    try {
     const response = await decksApi.addDeck(params)
-    if (response.data) {
-      dispatch(setStatusAC("loading"))
       dispatch(addDecksAC(response.data))
       dispatch(setStatusAC("succeeded"))
-    }
   } catch (error) {
     dispatch(setStatusAC("failed"))
     dispatch(setErrorAC("some error occurred"))
