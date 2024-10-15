@@ -12,8 +12,11 @@ export const DecksList = () => {
 
   if (!decks) return null
   useEffect(() => {
-    decksApi.getDecks().then((response) => dispatch(setDecksAC(response.data.items)))
-  }, [])
+    decksApi.getDecks().then((response) => {
+      if (!response.data.items) return;
+      dispatch(setDecksAC(response.data.items))
+    })
+  }, [dispatch])
 
   return (
     <ul className={s.list}>
