@@ -24,3 +24,7 @@ export type DeckProps = {
   updated: string;
   cardsCount: number;
 }
+
+export type AddDeckParamsProps = {
+  name: string
+}
