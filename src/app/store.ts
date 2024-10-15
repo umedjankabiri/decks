@@ -1,5 +1,5 @@
-import { applyMiddleware, combineReducers, legacy_createStore } from 'redux'
-import { thunk, ThunkDispatch } from 'redux-thunk'
+import { combineReducers, legacy_createStore } from 'redux'
+import { ThunkDispatch } from 'redux-thunk'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 import { decksReducer } from '../features/decks/decks-reducer.ts'
 import { DecksActions } from 'features/decks/types/DecksActionProps.ts'
