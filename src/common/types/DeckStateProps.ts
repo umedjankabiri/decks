@@ -1,4 +1,4 @@
-import { DeckProps } from 'features/decks/types/DeckResponseProps.ts'
+import { DeckProps } from 'common/types/DeckResponseProps.ts'
 
 export type DeckStateProps = {
   decks: DeckProps[],
