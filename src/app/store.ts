@@ -15,4 +15,4 @@ export type AppDispatch = ThunkDispatch<AppRootState, unknown, AppActions>
 export type AppActions = DecksActions
 
 export const useAppDispatch = () => useDispatch<AppDispatch>()
-export const useAppSelector: TypedUseSelectorHook<AppRootState> = useSelector.withTypes<AppRootState>()
+export const useAppSelector: TypedUseSelectorHook<AppRootState> = useSelector
