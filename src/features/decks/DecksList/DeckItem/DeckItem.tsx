@@ -1,7 +1,7 @@
 import s from './DeckItem.module.css'
-import { DeckProps } from 'features/decks/types/DeckResponseProps.ts'
+import { DeckProps } from 'common/types/DeckResponseProps.ts'
 
-const TEST_ACC_NAME = 'kukus'
+const TEST_ACC_NAME = 'Nik-Kik-Shpink'
 
 export const DeckItem = ({ deck }: { deck: DeckProps }) => {
   const isTestingDeck = deck.author.name === TEST_ACC_NAME
