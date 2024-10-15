@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from 'app/store.ts'
-import { selectDecks } from 'features/decks/decks-selectors.ts'
+import { selectDecks } from 'features/decks/decksSelectors.ts'
 import { useEffect } from 'react'
 import { getDecksTC } from 'features/decks/decks-thunks.ts'
 
