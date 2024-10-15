@@ -3,7 +3,7 @@ import { DecksActions } from 'features/decks/types/DecksActionProps.ts'
 import { DeckStateProps } from 'features/decks/types/DeckStateProps.ts'
 
 const initialState: DeckStateProps = {
-  decks: [] as DeckProps[],
+  decks: [],
   searchParams: {
     name: '',
   },
@@ -14,11 +14,11 @@ export const decksReducer = (state: DeckStateProps = initialState, action: Decks
     case 'SET_DECKS':
       return {
         ...state,
-        decks: action.payload.decks
+        decks: action.payload.decks,
       }
     default:
       return state
   }
 }
 
-export const setDecksAC = (decks: DeckProps[]) => ({ type: 'SET_DECKS', payload: { decks: decks } } as const)
+export const setDecksAC = (decks: DeckProps[]) => ({ type: 'SET_DECKS', payload: { decks: decks } }) as const
