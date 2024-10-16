@@ -4,3 +4,4 @@ import { StatusStateProps } from 'common/types/StatusStateProps.ts'
 
 export const selectDecks = (state: AppRootState): DeckStateProps => state.decksReducer
 export const selectStatus = (state: AppRootState): StatusStateProps => state.statusReducer
+export const selectError = (state: AppRootState) => state.statusReducer.error
