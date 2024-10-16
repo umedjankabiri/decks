@@ -32,3 +32,10 @@ export type UpdateDeckParamsProps = {
   id: string;
   name: string;
 }
+export type ServerError = {
+  errorMessages: ErrorMessages[]
+}
+type ErrorMessages = {
+  field: string;
+  message: string;
+}
