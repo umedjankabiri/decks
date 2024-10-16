@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import { decksApi } from 'features/decks/decksApi.ts'
 import { useAppDispatch, useAppSelector } from 'app/store.ts'
 import { selectStatus } from 'features/decks/decksSelectors.ts'
+import { GlobalError } from 'common/components/GlogalError/GlobalError.tsx'
 
 export const App = () => {
   const { status } = useAppSelector(selectStatus)
@@ -13,6 +14,7 @@ export const App = () => {
     <div>
       {status == "loading" && <LinearLoader />}
       <Decks />
+      <GlobalError />
     </div>
   )
 }
