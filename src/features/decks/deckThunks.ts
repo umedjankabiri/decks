@@ -2,7 +2,8 @@ import { AppDispatch } from 'app/store.ts'
 import { decksApi } from 'features/decks/decksApi.ts'
 import { addDecksAC, deleteDeckAC, setDecksAC, updateDeckAC } from 'features/decks/reducers/decksReducer.ts'
 import { AddDeckParamsProps, UpdateDeckParamsProps } from 'common/types/DeckResponseProps.ts'
-import { setErrorAC, setStatusAC } from 'features/decks/reducers/statusReducer.ts'
+import { setStatusAC } from 'features/decks/reducers/statusReducer.ts'
+import { handleError } from 'common/utils/handleError.ts'
 
 export const getDecksTC = () => async (dispatch: AppDispatch) => {
   dispatch(setStatusAC('loading'))
@@ -11,8 +12,7 @@ export const getDecksTC = () => async (dispatch: AppDispatch) => {
     dispatch(setDecksAC(response.data.items))
     dispatch(setStatusAC('succeeded'))
   } catch (error) {
-    dispatch(setStatusAC('failed'))
-    dispatch(setErrorAC('some error occurred'))
+    handleError(error, dispatch)
   }
 }
 export const AddDeckTC = (params: AddDeckParamsProps) => async (dispatch: AppDispatch) => {
@@ -22,8 +22,7 @@ export const AddDeckTC = (params: AddDeckParamsProps) => async (dispatch: AppDis
     dispatch(addDecksAC(response.data))
     dispatch(setStatusAC('succeeded'))
   } catch (error) {
-    dispatch(setStatusAC('failed'))
-    dispatch(setErrorAC('some error occurred'))
+    handleError(error, dispatch)
   }
 }
 export const deleteDeckTC = (id: string) => async (dispatch: AppDispatch) => {
@@ -33,7 +32,7 @@ export const deleteDeckTC = (id: string) => async (dispatch: AppDispatch) => {
     dispatch(deleteDeckAC(response.data.id))
     dispatch(setStatusAC('succeeded'))
   } catch (error) {
-    dispatch(setStatusAC('failed'))
+    handleError(error, dispatch)
   }
 }
 export const updateDeckTC = (params: UpdateDeckParamsProps) => async (dispatch: AppDispatch) => {
@@ -43,6 +42,6 @@ export const updateDeckTC = (params: UpdateDeckParamsProps) => async (dispatch: 
     dispatch(updateDeckAC(response.data))
     dispatch(setStatusAC('succeeded'))
   } catch (error) {
-    dispatch(setStatusAC('failed'))
+    handleError(error, dispatch)
   }
 }
